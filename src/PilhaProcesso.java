@@ -34,7 +34,7 @@ public class PilhaProcesso {
         return dados.estaVazio();
     }
 
-    public void imprimit() {
+    public void imprimir() {
         if (estaVazio()) {
             System.out.println("Pilha vazia!!!");
             return;
