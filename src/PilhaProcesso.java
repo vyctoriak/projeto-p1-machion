@@ -34,4 +34,22 @@ public class PilhaProcesso {
         return dados.estaVazio();
     }
 
+    public void imprimit() {
+        if (estaVazio()) {
+            System.out.println("Pilha vazia!!!");
+            return;
+        }
+        System.out.println("===== TOPO =====");
+        for (int i = dados.getTamanho() - 1; i >= 0; i--) {
+            System.out.println(dados.obter(i));
+        }
+        System.out.println("==== BASE =====");
+    }
+
+    public void limpar() {
+        while (!estaVazio()) {
+            pop();
+        }
+    }
+
 }
