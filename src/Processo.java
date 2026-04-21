@@ -40,4 +40,20 @@ public class Processo {
         return dataHora;
     }
 
+    public void setSolicitante(String solicitante) {
+        this.solicitante = solicitante;
+    }
+
+    public void setTipoServico(String tipoServico) {
+        this.tipoServico = tipoServico;
+    }
+
+    public void setPrioridade(int prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
+    }
+
 }
