@@ -26,4 +26,21 @@ public class PilhaPrioridade {
                 System.out.println("Prioridade inválida!");
         }
     }
+
+    public Processo pop() {
+        if (!pilhaUrgente.estaVazio()) {
+            return pilhaUrgente.pop();
+        } else if (!pilhaNormal.estaVazio()) {
+            return pilhaNormal.pop();
+        } else if (!pilhaBaixa.estaVazio()) {
+            return pilhaBaixa.pop();
+        } else {
+            throw new PilhaVaziaException("Não é possível remover: todas as pilhas estão vazias.");
+        }
+    }
+
+    public boolean estaVazia() {
+        return pilhaBaixa.estaVazio() && pilhaNormal.estaVazio() && pilhaUrgente.estaVazio();
+    }
+
 }
