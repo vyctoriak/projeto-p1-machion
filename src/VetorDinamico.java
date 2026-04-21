@@ -33,7 +33,7 @@ public class VetorDinamico {
     }
 
     public Processo remover(int indice) {
-        // dps criar método que verifica o indice e chamar aqui
+        verificarIndice(indice);
         Processo removido = dados[indice];
         for (int i = indice; i < tamanho; i++) {
             dados[i] = dados[i + 1];
@@ -55,6 +55,12 @@ public class VetorDinamico {
             novo[i] = dados[i];
         }
         dados = novo;
+    }
+
+    private void verificarIndice(int indice) {
+        if (indice < 0 || indice >= tamanho) {
+            throw new IndexOutOfBoundsException("Índice inválido: " + indice + " (tamanho atual: " + tamanho + ")");
+        }
     }
 
 }
