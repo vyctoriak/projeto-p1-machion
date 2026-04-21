@@ -2,11 +2,11 @@ package src;
 
 public class CentralAtendimento {
 
-    private PilhaProcesso pilhaPrincipal;
+    private PilhaPrioridade pilhaPrincipal;
     private PilhaProcesso pilhaAuxiliar;
 
     public CentralAtendimento() {
-        this.pilhaPrincipal = new PilhaProcesso();
+        this.pilhaPrincipal = new PilhaPrioridade();
         this.pilhaAuxiliar = new PilhaProcesso();
     }
 
@@ -30,7 +30,7 @@ public class CentralAtendimento {
 
     public void listarPendentes() {
         System.out.println("=== PROCESSOS PENDENTES ===");
-        pilhaPrincipal.imprimir();
+        pilhaPrincipal.listar();
     }
 
     public void listarHistorico() {
