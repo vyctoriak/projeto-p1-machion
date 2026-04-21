@@ -39,8 +39,39 @@ public class PilhaPrioridade {
         }
     }
 
+    public Processo peek() {
+        if (!pilhaUrgente.estaVazio()) {
+            return pilhaUrgente.peek();
+        } else if (!pilhaNormal.estaVazio()) {
+            return pilhaNormal.peek();
+        } else if (!pilhaBaixa.estaVazio()) {
+            return pilhaBaixa.peek();
+        } else {
+            throw new PilhaVaziaException("Não é possível consultar: todas as pilhas estão vazias.");
+        }
+    }
+
+    public int tamanho() {
+        return pilhaBaixa.tamanho() + pilhaNormal.tamanho() + pilhaUrgente.tamanho();
+    }
+
     public boolean estaVazia() {
         return pilhaBaixa.estaVazio() && pilhaNormal.estaVazio() && pilhaUrgente.estaVazio();
+    }
+
+    public void listar() {
+        System.out.println("[URGENTE]");
+        pilhaUrgente.imprimir();
+        System.out.println("[NORMAL]");
+        pilhaNormal.imprimir();
+        System.out.println("[BAIXA]");
+        pilhaBaixa.imprimir();
+    }
+
+    public void limpar() {
+        pilhaBaixa.limpar();
+        pilhaNormal.limpar();
+        pilhaUrgente.limpar();
     }
 
 }
