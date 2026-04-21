@@ -39,11 +39,11 @@ public class PilhaProcesso {
             System.out.println("Pilha vazia!!!");
             return;
         }
-        System.out.println("===== TOPO =====");
+        System.out.println("\n===== TOPO =====");
         for (int i = dados.getTamanho() - 1; i >= 0; i--) {
             System.out.println(dados.obter(i));
         }
-        System.out.println("==== BASE =====");
+        System.out.println("\n==== BASE =====");
     }
 
     public void limpar() {
