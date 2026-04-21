@@ -56,4 +56,23 @@ public class Processo {
         this.dataHora = dataHora;
     }
 
+    private String rotuloPrioridade() {
+        switch (prioridade) {
+            case 1:
+                return "Baixa";
+            case 2:
+                return "Normal";
+            case 3:
+                return "Urgente";
+            default:
+                return "Prioridade desconhecida";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[#%03d] %s | %s | %s | %s", protocolo, solicitante, tipoServico, rotuloPrioridade(),
+                dataHora);
+    }
+
 }
