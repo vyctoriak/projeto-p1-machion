@@ -19,4 +19,25 @@ public class Processo {
         this.prioridade = prioridade;
         this.dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
+
+    public int getProtocolo() {
+        return protocolo;
+    }
+
+    public String getSolicitante() {
+        return solicitante;
+    }
+
+    public String getTipoServico() {
+        return tipoServico;
+    }
+
+    public int getPrioridade() {
+        return prioridade;
+    }
+
+    public String getDataHora() {
+        return dataHora;
+    }
+
 }
