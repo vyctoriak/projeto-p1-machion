@@ -32,6 +32,23 @@ public class VetorDinamico {
         tamanho++;
     }
 
+    public Processo remover(int indice) {
+        // dps criar método que verifica o indice e chamar aqui
+        Processo removido = dados[indice];
+        for (int i = indice; i < tamanho; i++) {
+            dados[i] = dados[i + 1];
+        }
+        dados[tamanho - 1] = null;
+        tamanho--;
+
+        if (dados.length > capacidadeInicial && tamanho < dados.length / 4) {
+            int novaCapacidade = Math.max(dados.length / 2, capacidadeInicial);
+            redimensionar(novaCapacidade);
+        }
+
+        return removido;
+    }
+
     private void redimensionar(int novaCapacidade) {
         Processo[] novo = new Processo[novaCapacidade];
         for (int i = 0; i < tamanho; i++) {
