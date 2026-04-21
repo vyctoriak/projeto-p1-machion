@@ -41,12 +41,38 @@ public class VetorDinamico {
         dados[tamanho - 1] = null;
         tamanho--;
 
+        // reduz capacidade se a ocupação for menor que 25%
+        // e capacidad atual for maior que inicial
         if (dados.length > capacidadeInicial && tamanho < dados.length / 4) {
             int novaCapacidade = Math.max(dados.length / 2, capacidadeInicial);
             redimensionar(novaCapacidade);
         }
 
         return removido;
+    }
+
+    public Processo obter(int indice) {
+        verificarIndice(indice);
+        return dados[indice];
+    }
+
+    public void listar() {
+        for (int i = 0; i < tamanho; i++) {
+            System.out.println((i + 1) + ". " + dados[i]);
+        }
+    }
+
+    public int buscaPorProtocolo(int protocolo) {
+        for (int i = 0; i < tamanho; i++) {
+            if (dados[i].getProtocolo() == protocolo) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean estaVazio() {
+        return tamanho == 0;
     }
 
     private void redimensionar(int novaCapacidade) {
