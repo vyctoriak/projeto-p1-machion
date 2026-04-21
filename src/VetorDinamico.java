@@ -16,4 +16,28 @@ public class VetorDinamico {
         this.tamanho = 0;
     }
 
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public int getCapacidade() {
+        return dados.length;
+    }
+
+    public void adicionar(Processo p) {
+        if (tamanho == dados.length) {
+            redimensionar(dados.length * 2);
+        }
+        dados[tamanho] = p;
+        tamanho++;
+    }
+
+    private void redimensionar(int novaCapacidade) {
+        Processo[] novo = new Processo[novaCapacidade];
+        for (int i = 0; i < tamanho; i++) {
+            novo[i] = dados[i];
+        }
+        dados = novo;
+    }
+
 }
